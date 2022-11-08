@@ -1,0 +1,11 @@
+.footer {
+  position: absolute;
+  background: #ffd6e0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer--text {
+  font-size: 20px;
+  font-weight: 700;
+}

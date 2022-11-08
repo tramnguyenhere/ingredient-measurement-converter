@@ -1,9 +1,64 @@
 .main {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
   text-align: center;
   font-weight: 800;
   color: #7bf1a8;
+}
+
+.inputlist {
+  display: flex;
+}
+
+.input--available {
+  text-align: center;
+  margin: 50px 12px 20px;
+}
+
+.input--available h3 {
+  font-size: 20px;
+}
+
+.btn--convert,
+.btn--reset {
+  background: #7bf1a8;
+  font-weight: 700;
+  color: #000000;
+  border: none;
+  padding: 10px 30px;
+}
+
+.result {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result__item {
+  list-style: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.result__item:last-child {
+  margin-bottom: 10px;
+}
+
+.btn--delete-item {
+  background: #ffd6e0;
+  border: none;
+  color: #000000;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.btn--reset {
+  width: fit-content;
 }

@@ -1,0 +1,50 @@
+.navbar__wrapper {
+  background: #90f1ef;
+}
+
+.navbar__brand {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.navbar__link--code,
+.navbar__link--contact {
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: 600;
+}
+
+.navbar__link--code {
+  background: #c1fba4;
+  margin-right: 20px;
+}
+
+.navbar__link--contact {
+  background: #ffd6e0;
+}
+
+.navbar__link--code:hover,
+.navbar__link--contact:hover {
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-animation: bounce 0.5s infinite alternate;
+  -moz-animation: bounce 0.5s infinite alternate;
+  animation: bounce 0.5s infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+  to {
+    -webkit-transform: scale(1.1);
+  }
+}
+@-moz-keyframes bounce {
+  to {
+    -moz-transform: scale(1.1);
+  }
+}
+@keyframes bounce {
+  to {
+    transform: scale(1.1);
+  }
+}

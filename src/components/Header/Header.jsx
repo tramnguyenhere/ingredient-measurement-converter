@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import { Nav, Navbar, NavbarBrand, NavItem, NavLink, Button } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, Button } from 'reactstrap';
 
 const Header = () => {
   return (

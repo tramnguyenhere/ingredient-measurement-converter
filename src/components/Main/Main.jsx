@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { Button, Form, Input } from 'reactstrap';
 import './main.scss';
+
+import FormElement from './FormElement';
+import ListElement from './ListElement';
 
 const baseUrl = 'http://localhost:3001/data';
 
@@ -85,94 +87,19 @@ const Main = () => {
   return (
     <div className='main'>
       <h1 className='title'>INGREDIENT MEASUREMENT CONVERTER</h1>
-
-      <Form className='form' onSubmit={convertHandler}>
-        <div className='inputlist'>
-          <div className='input--available'>
-            <h3>INGREDIENT</h3>
-            <Input
-              value={ingredient}
-              required
-              onChange={(e) => setIngredient(e.target.value)}
-              className='input--ingredient'
-            />
-          </div>
-
-          <div className='input--available'>
-            <h3>QUANTITY</h3>
-            <Input
-              value={quantity}
-              required
-              onChange={(e) => {
-                setQuantity(e.target.value);
-              }}
-              type='number'
-              className='input--quantity'
-            />
-          </div>
-          <div className='input--available'>
-            <h3>UNIT</h3>
-            <Input
-              value={unit}
-              onChange={(e) => setUnit(e.target.value)}
-              type='select'
-              className='input--unit'
-            >
-              {unitList.map((unit) => (
-                <option key={unit}>{unit}</option>
-              ))}
-            </Input>
-          </div>
-          <div className='input--available'>
-            <h3>CONVERTED UNIT</h3>
-            <Input
-              value={toConvertUnit}
-              onChange={(e) => {
-                setToConvertUnit(e.target.value);
-              }}
-              type='select'
-              className='input--prefered-unit'
-            >
-              {unitList.map((unit) => (
-                <option key={unit}>{unit}</option>
-              ))}
-            </Input>
-          </div>
-        </div>
-        <Button type='submit' className='btn--convert'>
-          CONVERT
-        </Button>
-      </Form>
-      <div className='result'>
-        <ul className='result__list'>
-          {list.map((item) => (
-            <li key={item.id} id={item.id} className='result__item'>
-              <span>
-                {item.ingredient} {item.quantity} {item.unit}
-              </span>{' '}
-              <Button
-                onClick={(e) =>
-                  setList(
-                    list.filter(
-                      (line) => line.id !== Number(e.target.parentElement.id)
-                    )
-                  )
-                }
-                className='btn--delete-item'
-              >
-                delete
-              </Button>
-            </li>
-          ))}
-        </ul>
-        {list.length === 0 ? (
-          'No data'
-        ) : (
-          <Button onClick={resetHandler} className='btn--reset'>
-            RESET
-          </Button>
-        )}
-      </div>
+      <FormElement
+        unitList={unitList}
+        ingredient={ingredient}
+        setIngredient={setIngredient}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        unit={unit}
+        setUnit={setUnit}
+        toConvertUnit={toConvertUnit}
+        setToConvertUnit={setToConvertUnit}
+        convertHandler={convertHandler}
+      />
+      <ListElement list={list} setList={setList} resetHandler={resetHandler} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { v4 as uuid } from 'uuid';
 
 import './main.scss';
 
@@ -69,7 +70,7 @@ const Main = () => {
       const convertedQuantity = (quantity * unitRefDb) / unitDb;
 
       const listObject = {
-        id: list.length + 1,
+        id: uuid(),
         ingredient: ingredient,
         unit: toConvertUnit,
         quantity: convertedQuantity.toFixed(2),

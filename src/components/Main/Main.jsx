@@ -9,12 +9,17 @@ import ListElement from './ListElement';
 
 const baseUrl = 'http://localhost:3001/data';
 
+const testData =
+  localStorage.getItem('list') === null
+    ? []
+    : JSON.parse(localStorage.getItem('list'));
+
 const Main = () => {
   const [quantity, setQuantity] = useState(0);
   const [unit, setUnit] = useState('cups');
   const [toConvertUnit, setToConvertUnit] = useState('cups');
   const [ingredient, setIngredient] = useState('');
-  const [list, setList] = useState(JSON.parse(localStorage.getItem('list')));
+  const [list, setList] = useState(testData);
   const [unitRef, setUnitRef] = useState([]);
 
   //Fetch unit reference in database and list result in local store

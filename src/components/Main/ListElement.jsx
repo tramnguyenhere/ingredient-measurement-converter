@@ -5,6 +5,9 @@ import './main.scss';
 import ButtonElement from '../UI/ButtonElement';
 
 const ListElement = ({ list, deleteHandler, resetHandler }) => {
+  if (!list) {
+    return;
+  }
   return (
     <div className='result'>
       <ul className='result__list'>

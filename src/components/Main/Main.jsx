@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 
 import './main.scss';
 
 import FormElement from './FormElement';
 import ListElement from './ListElement';
+import { data } from '../../data';
 
-const baseUrl = 'http://localhost:3001/data';
+// const baseUrl = 'http://localhost:3001/data';
 
 const testData =
   localStorage.getItem('list') === null
@@ -24,9 +25,12 @@ const Main = () => {
 
   //Fetch unit reference in database and list result in local store
   useEffect(() => {
-    axios.get(baseUrl).then((response) => {
-      setUnitRef(response.data);
-    });
+    // axios.get(baseUrl).then((response) => {
+    //   setUnitRef(response.data);
+    // });
+
+    setUnitRef(data);
+    console.log(data);
     getLocalLists();
   }, []);
   //---

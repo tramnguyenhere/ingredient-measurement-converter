@@ -1,9 +1,10 @@
 import React from 'react';
 
 import './main.scss';
-import { Form, Button } from 'reactstrap';
+import { Form } from 'reactstrap';
 
 import InputElement from './InputElement';
+import ButtonElement from '../UI/ButtonElement';
 
 const FormElement = ({
   convertHandler,
@@ -48,9 +49,7 @@ const FormElement = ({
             unitList={unitList}
           />
         </div>
-        <Button type='submit' className='btn--convert'>
-          CONVERT
-        </Button>
+        <ButtonElement type='submit' className='btn--convert' name='CONVERT' />
       </Form>
     </div>
   );

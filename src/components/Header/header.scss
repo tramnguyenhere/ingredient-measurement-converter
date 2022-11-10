@@ -1,0 +1,60 @@
+@import '../../styles/global.scss';
+
+.navbar__wrapper {
+  background: $--theme-ui-color-primary;
+
+  .navbar__brand {
+    font-weight: 600;
+    font-size: 2rem;
+
+    @media (max-width: 739px) {
+     font-size: 1.5rem;
+    }
+  }
+
+  .navbar__link--code,
+  .navbar__link--contact {
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: 600;
+    background: $--theme-ui-color-secondary;
+
+    &:hover {
+      text-decoration: none;
+      color: $--theme-ui-color-primary;
+      -webkit-animation: bounce 0.5s infinite alternate;
+      -moz-animation: bounce 0.5s infinite alternate;
+      animation: bounce 0.5s infinite alternate;
+    }
+
+    @media (min-width: 740px) and (max-width: 838px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 739px) {
+     display: none; 
+    }
+  }
+
+  .navbar__link--code {
+    margin-right: 20px;
+  }
+
+}
+
+@-webkit-keyframes bounce {
+  to {
+    -webkit-transform: scale(1.1);
+  }
+}
+@-moz-keyframes bounce {
+  to {
+    -moz-transform: scale(1.1);
+  }
+}
+@keyframes bounce {
+  to {
+    transform: scale(1.1);
+  }
+}

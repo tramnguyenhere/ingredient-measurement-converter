@@ -16,13 +16,16 @@ const Main = () => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem('list')));
   const [unitRef, setUnitRef] = useState([]);
 
+  //Fetch unit reference in database and list result in local store
   useEffect(() => {
     axios.get(baseUrl).then((response) => {
       setUnitRef(response.data);
     });
     getLocalLists();
   }, []);
+  //---
 
+  //Save list result in local storage
   useEffect(() => {
     if (list.length >= 0) {
       localStorage.setItem('list', JSON.stringify(list));
@@ -37,6 +40,7 @@ const Main = () => {
       setList(listLocal);
     }
   };
+  //---
 
   const unitList =
     unitRef !== []
@@ -55,6 +59,7 @@ const Main = () => {
           'teaspoons',
         ];
 
+  // Function Handler
   const convertHandler = (e) => {
     e.preventDefault();
     if (unitRef !== []) {
@@ -78,12 +83,18 @@ const Main = () => {
     }
   };
 
+  const deleteHandler = (e) => {
+    setList(
+      list.filter((line) => line.id !== Number(e.target.parentElement.id))
+    );
+  };
+
   const resetHandler = (e) => {
     e.preventDefault();
     setList([]);
   };
+  //---
 
-  console.log(list);
   return (
     <div className='main'>
       <h1 className='title'>INGREDIENT MEASUREMENT CONVERTER</h1>
@@ -99,7 +110,11 @@ const Main = () => {
         setToConvertUnit={setToConvertUnit}
         convertHandler={convertHandler}
       />
-      <ListElement list={list} setList={setList} resetHandler={resetHandler} />
+      <ListElement
+        list={list}
+        deleteHandler={deleteHandler}
+        resetHandler={resetHandler}
+      />
     </div>
   );
 };

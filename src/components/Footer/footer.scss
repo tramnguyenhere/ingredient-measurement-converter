@@ -1,0 +1,14 @@
+@import '../../styles/global.scss';
+
+.footer {
+  position: fixed;
+  background: $--theme-ui-color-primary;
+  bottom: 0;
+  width: 100%;
+
+  .footer--text {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+

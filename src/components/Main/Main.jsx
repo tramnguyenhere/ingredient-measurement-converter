@@ -94,9 +94,9 @@ const Main = () => {
   };
 
   const deleteHandler = (e) => {
-    setList(
-      list.filter((line) => line.id !== Number(e.target.parentElement.id))
-    );
+    setList(list.filter((line) => line.id !== e.target.parentElement.id));
+
+    console.log(e.target.parentElement.id);
   };
 
   const resetHandler = (e) => {

@@ -1,4 +1,4 @@
-# tramnguyenhere - Personal Portfolio
+# tramnguyenhere - Ingredient measurement converter application
 
 - An ingredient measurement converter app I used to convert between parameter for my own use (baking, cooking, etc.)
 
